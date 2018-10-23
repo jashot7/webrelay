@@ -9,7 +9,12 @@ type TypedMessage struct{
 
 type AuthMessage struct {
 	UserID          string `json:"userID"`
-	SubscriptionKey string `json:"subscriptionKey"`
+	PubKey 			string `json:"pubKey"`
+	SignedNonce		string `json:"signedNonce"`
+}
+
+type HelloMessage struct {
+	UserID          string `json:"userID"`
 }
 
 type EncryptedMessage struct {
