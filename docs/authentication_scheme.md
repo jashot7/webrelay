@@ -5,15 +5,15 @@ Web Relay Authentication Scheme
 
 ```go
 type HelloMessage struct {
-	UserID          string `json:"userID"`
+	UserID          string `json:"userID"`  // Client peer id
 }
 ```
 
-2. Relay sends AuthChallengeMessage to Client
+2. Relay sends AuthChallengeMessage to Client. 
 
 ```go
 type AuthChallengeMessage struct {
-	Nonce          string `json:"nonce"`
+	Nonce          string `json:"nonce"`  // 24 bit random nonce
 }
 ```
 
@@ -21,9 +21,9 @@ type AuthChallengeMessage struct {
 
 ```go
 type AuthMessage struct {
-  UserID         string `json:"userID"`
-  PubKey         string `json:"pubKey"`
-  SignedNonce    string `json:"signedNonce"`
+  UserID         string `json:"userID"`   // client peer id
+  PubKey         string `json:"pubKey"`   // client's identity pubkey
+  SignedNonce    string `json:"signedNonce"`  // signed 24 bit nonce
 }
 ```
 
